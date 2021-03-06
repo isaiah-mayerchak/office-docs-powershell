@@ -73,10 +73,18 @@ If your account uses multi-factor authentication, use the steps in this section.
 For detailed syntax and parameter information, see [Connect-IPPSSession](https://docs.microsoft.com/powershell/module/exchange/connect-exchangeonline).
 
 > [!NOTE]
-> Be sure to disconnect the remote PowerShell session when you're finished. If you close the Windows PowerShell window without disconnecting the session, you could use up all the remote PowerShell sessions available to you, and you'll need to wait for the sessions to expire. To disconnect the remote PowerShell session, run the following command.
+> Be sure to disconnect the remote PowerShell session when you're finished. If you close the Windows PowerShell window without disconnecting the session, you could use up all the remote PowerShell sessions available to you, and you'll need to wait for the sessions to expire.
+
+To disconnect the remote PowerShell session without a confirmation prompt, run the following command:
 
 ```powershell
-Disconnect-ExchangeOnline
+Disconnect-ExchangeOnline -Confirm:$false
+```
+
+To silently disconnect the remote PowerShell session without a confirmation prompt or notification text, run the following command:
+
+```powershell
+Disconnect-ExchangeOnline -Confirm:$false -InformationAction Ignore -ErrorAction SilentlyContinue
 ```
 
 ## Connect to Exchange Online Protection PowerShell using modern authentication
